@@ -4,8 +4,7 @@ export default async function loadSaveData(incomeJSON) {
   try {
     const result = await GameSavingLoader.load(incomeJSON);
     return result;
-  }
-  catch {
+  } catch (error) {
     return new Error('Ошибка загрузки данных!');
   }
 }
