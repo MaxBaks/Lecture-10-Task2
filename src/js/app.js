@@ -1,11 +1,11 @@
 import GameSavingLoader from './gameSavingLoader';
 
-export default function loadSaveData(incomeJSON) {
-  return new Promise((resolve) => {
-    GameSavingLoader.load(incomeJSON).then((saving) => {
-      resolve(saving);
-    }, () => {
-      resolve(new Error('Ошибка загрузки данных!'));
-    });
-  });
+export default async function loadSaveData(incomeJSON) {
+  try {
+    const result = await GameSavingLoader.load(incomeJSON);
+    return result;
+  }
+  catch {
+    return new Error('Ошибка загрузки данных!');
+  }
 }
