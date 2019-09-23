@@ -1,10 +1,10 @@
 import GameSavingLoader from './gameSavingLoader';
 
-export default async function loadSaveData(incomeJSON) {
-  try {
+const loadSaveData = (incomeJSON) => {
+  (async () => {
     const result = await GameSavingLoader.load(incomeJSON);
     return result;
-  } catch (error) {
-    return new Error('Ошибка загрузки данных!');
-  }
-}
+  })().catch(() => new Error('Ошибка загрузки данных!'));
+};
+
+export default loadSaveData;
