@@ -18,7 +18,6 @@ test('should return object', async () => {
 
 test('should return ERROR', async () => {
   const expected = Error('Ошибка загрузки данных!');
-
   const result = await loadSaveData('dsgdsg');
   expect(result).toEqual(expected);
 });
